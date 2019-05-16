@@ -1,0 +1,80 @@
+{
+    "name": "boilerplate-babel-express",
+    "version": "1.0.0",
+    "description": "A simple boilerplate to kickstart a project with babel and express.",
+    "license": "MIT",
+    "author": {
+        "name": "Milos Sakovic",
+        "email": "milos@deva.co",
+        "url": "https://milos.link"
+    },
+    "scripts": {
+        "build": "npm run clean; babel app/ --out-dir build/ --ignore node_modules/",
+        "start": "npm run build; NODE_ENV=production node build/server.js",
+        "watch": "babel-watch app/server.js",
+        "test": "jest",
+        "clean": "rm -rf build/*",
+        "clean:all": "npm run clean; rm -rf node_nmodules/*",
+        "lint": "prettier-standard 'app/**/*.js'"
+    },
+    "keywords": [
+        "babel",
+        "express",
+        "boilerplate"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/milose/boilerplate-babel-express"
+    },
+    "dependencies": {
+        "dotenv": "^8.0.0",
+        "eslint-config-standard": "^12.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "express": "^4.16.4",
+        "supertest": "^4.0.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.4",
+        "@babel/node": "^7.2.2",
+        "@babel/plugin-transform-runtime": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "babel-jest": "^24.8.0",
+        "babel-watch": "^7.0.0",
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^4.2.0",
+        "eslint-config-prettier-standard": "^2.0.0",
+        "eslint-plugin-import": "^2.17.2",
+        "eslint-plugin-node": "^9.0.1",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-promise": "^4.1.1",
+        "husky": "^2.3.0",
+        "jest": "^24.8.0",
+        "lint-staged": "^8.1.7",
+        "prettier": "^1.17.1",
+        "prettier-standard": "^9.1.1"
+    },
+    "jest": {
+        "testMatch": [
+            "**/tests/**/*.js"
+        ],
+        "coverageDirectory": "tests/coverage",
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "app/**/*.js"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "linters": {
+            "app/**/*.js": [
+                "prettier-standard",
+                "git add"
+            ]
+        }
+    }
+}
