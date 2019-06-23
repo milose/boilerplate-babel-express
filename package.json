@@ -56,9 +56,9 @@
     },
     "jest": {
         "testMatch": [
-            "**/tests/**/*.js"
+            "**/test/**/*.js"
         ],
-        "coverageDirectory": "tests/coverage",
+        "coverageDirectory": "test/coverage",
         "collectCoverage": true,
         "collectCoverageFrom": [
             "app/**/*.js"
