@@ -59,6 +59,7 @@
         "testMatch": [
             "**/test/**/*.js"
         ],
+        "testPathIgnorePatterns": ["<rootDir>/build/", "<rootDir>/node_modules/", "<rootDir>/test/coverage/"],
         "coverageDirectory": "test/coverage",
         "collectCoverage": true,
         "collectCoverageFrom": [
